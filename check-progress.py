@@ -81,8 +81,7 @@ insertion_point = html_content.find('<body>') + len('<body>')
 gif_html = """
 <div style="display: flex; justify-content: center; align-items: center; height: 25vh; flex-direction: column; margin-bottom:50px">
     <div><img src="eye.png" alt="Blinking Eye" style="max-width: 100%; height: auto;"></div>
-    <a href="https://www.fontspace.com/category/lord-of-the-rings"><img src="https://see.fontimg.com/api/renderfont4/51mgZ/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/QUxMIFNFRUlORyBFWUU/ringbearer-medium.png" alt="Lord of the Rings fonts" style=color:red></a>
-    <div><img src="text.png" alt="Additional Text" style="max-width: 100%; height: auto;"></div>
+    <a href="https://www.fontspace.com/category/lord-of-the-rings"><img src="https://see.fontimg.com/api/renderfont4/51mgZ/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjQUEwNTA1IiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/QUxMIFNFRUlORyBFWUU/ringbearer-medium.png" alt="Lord of the Rings fonts"></a>
 </div>"""
 
 modified_html = html_content[:insertion_point] + gif_html + html_content[insertion_point:]
