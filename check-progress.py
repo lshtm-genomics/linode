@@ -72,13 +72,33 @@ for row in csv.DictReader(open(args.assigned_ips,encoding='utf-8-sig')):
 
 df = pd.DataFrame(results['rnaseq'])
 fig = px.histogram(df, x="coverage",nbins=100,template="simple_white",title="Progress of participants")
+fig.update_layout(
+    plot_bgcolor='rgba(0,0,0,0)',  
+    paper_bgcolor='rgba(0,0,0,0)', 
+    margin=dict(l=10, r=10, t=30, b=10),
+    xaxis=dict(color='white'),  
+    yaxis=dict(color='white'),  
+    font=dict(color='white')  
+)
+
+
 fig.write_html("progress.html")
 
 with open("progress.html", "r") as file:
     html_content = file.read()
 
+background_image_url = "url('mount-doom.jpg')"
+
 insertion_point = html_content.find('<body>') + len('<body>')
+
 gif_html = """
+<style>
+body {
+    background-image: """ + background_image_url + """;
+    background-size: cover;
+}
+/* Additional styles */
+</style>
 <div style="display: flex; justify-content: center; align-items: center; height: 25vh; flex-direction: column; margin-bottom:50px">
     <div><img src="eye.png" alt="Blinking Eye" style="max-width: 100%; height: auto;"></div>
     <a href="https://www.fontspace.com/category/lord-of-the-rings"><img src="https://see.fontimg.com/api/renderfont4/51mgZ/eyJyIjoiZnMiLCJoIjo2NSwidyI6MTAwMCwiZnMiOjY1LCJmZ2MiOiIjQUEwNTA1IiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/QUxMIFNFRUlORyBFWUU/ringbearer-medium.png" alt="Lord of the Rings fonts"></a>
