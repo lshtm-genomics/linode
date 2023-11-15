@@ -43,12 +43,23 @@ def get_progress(row):
             '/home/user/data/transcriptomics/Mapping_Mtb/Mtb_L4_htseq_count.txt',
         ],
         "microbiome": [
-            '/home/user/data/metagenomics/',
+            '/home/user/data/metagenomics/fastqc_combined/multiqc_report.html',
+            '/home/user/data/metagenomics/fastq_imported.qza',
+            '/home/user/data/metagenomics/denoising_stats.qza',
+            '/home/user/data/metagenomics/rooted_tree.qza',
+            '/home/user/data/metagenomics/rooted_tree.qza',
+            '/home/user/data/metagenomics/table.qzv',
+            '/home/user/data/metagenomics/core-metrics-results',
+            '/home/user/data/metagenomics/taxonomy.qza',
+            '/home/user/data/metagenomics/taxonomy.qzv',
+            '/home/user/data/metagenomics/taxa_barplot.qzv',
+            '/home/user/data/metagenomics/alpha_tests',
+            '/home/user/data/metagenomics/beta_tests',
         ]
     }
 
     files_found = set()
-    for l in sp.Popen('ssh user@%s "find /home/user/data -exec du -hs {} \;"' % row['IP'],stdout=sp.PIPE,shell=True).stdout:
+    for l in sp.Popen('ssh root@%s "find /home/user/data -exec du -hs {} \;"' % row['IP'],stdout=sp.PIPE,shell=True).stdout:
         files_found.add(l.decode().strip().split('\t')[1])
 
     progress = {}
