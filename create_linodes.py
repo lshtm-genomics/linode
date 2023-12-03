@@ -28,5 +28,5 @@ if len(tomake) > 0:
         time.sleep(5)
 
         # label = "user" + str(i).zfill(2)
-        cmd = "linode-cli linodes create --authorized_users jodyphelan --backups_enabled false --booted true --image 'linode/ubuntu20.04' --private_ip false --region ap-south --root_pass lshtmgenomics2023 --stackscript_data '{}' --stackscript_id 1095119 --type g6-standard-4" + f" --label {label}"
+        cmd = "linode-cli linodes create --authorized_users jodyphelan --backups_enabled false --booted true --image 'linode/ubuntu20.04' --private_ip false --region eu-west --root_pass lshtmgenomics2023 --stackscript_data '{}' --stackscript_id 1095119 --type g6-standard-4" + f" --label {label}"
         sp.run(cmd, shell=True)
